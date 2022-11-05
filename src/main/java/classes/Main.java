@@ -1,28 +1,37 @@
 package classes;
 
-import com.github.javafaker.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import com.github.javafaker.Faker;
 
 public class Main {
     public static void main(String[] args) {
     	
-        Faker faker = new Faker();
-        String name1 = faker.name().fullName();
-        String name2 = faker.name().fullName();
-        String name3 = faker.name().fullName();
-        String name4 = faker.name().fullName();
-             
-        System.out.println("Nome 1: "+name1);
-        System.out.println("Nome 2: "+name2);
-        System.out.println("Nome 3: "+name3);
-        System.out.println("Nome 4: "+name4);
+        Faker faker = new Faker();        
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        ArrayList<Person> person = new ArrayList<Person>();
+            
+        for(int i =0;i<5;i++) {
+        	 person.add(new Person());
+        }
         
+        //Setting random data to each person in Person array
+        for(int i=0;i<person.size();i++) {        	
+        	 person.get(i).setName(faker.name().fullName());
+        	 person.get(i).setUniversity(faker.university().name());
+        	 person.get(i).setBirthDate(sdf.format(faker.date().birthday()));
+        	 person.get(i).setSkill(faker.job().keySkills());
+        	 person.get(i).setFavoriteGame(faker.esports().game());
+        	 person.get(i).setCountry(faker.country().name());
+        	 person.get(i).setFavoriteColor(faker.color().name().toUpperCase());        	 
+        }
         
-        //Utilizando a classe Figurinha
-        
-        Figurinha player = new Figurinha();
-        player.setNome(faker.name().fullName());
-        
-        System.out.println("\nJogador: " + player);
-
+        int n=1;
+        for(int i=0;i<person.size();i++) {           	
+        	System.out.printf("\n*Person %d*\n%s",n, person.get(i)); 
+        	System.out.println("___________________________________________________________");
+        	n++;
+       }     
+        System.exit(0);      
     }
 }
