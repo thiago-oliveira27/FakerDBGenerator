@@ -23,7 +23,7 @@ public class Main {
         	 person.get(i).setSkill(faker.job().keySkills());
         	 person.get(i).setFavoriteGame(faker.esports().game());
         	 person.get(i).setCountry(faker.country().name());
-        	 person.get(i).setFavoriteColor(faker.color().name().toUpperCase());        	 
+        	 person.get(i).setFavoriteColor(faker.color().name());        	 
         }
         
         int n=1;
