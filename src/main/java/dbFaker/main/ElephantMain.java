@@ -9,28 +9,23 @@ import java.util.ArrayList;
 import dbFaker.dataModel.PersonModel;
 import dbFaker.dataServices.DataServices;
 import dbFaker.dbConnection.DMLServices;
-import io.github.cdimascio.dotenv.Dotenv;
 
-
-public class Main {
+public class ElephantMain {
 	
     public static void main(String[] args) {
     	
-        Dotenv dotenv = Dotenv.load();
-        
-
         ArrayList<PersonModel> person = DataServices.generateData(50);        
 
         person.forEach(System.out::println);
-            
-        
-        String dbHost = dotenv.get("DB_HOST");
-        String dbUsername = dotenv.get("DB_USERNAME");
-        String dbPassword = dotenv.get("DB_PASSWORD");
+             
+        String url = "jdbc:postgresql://babar.db.elephantsql.com:5432/fklvqarc";
+        String user = "fklvqarc";
+        String password = "l_tth0QKex13IK0yoFdajK1qUwQck5h2";
+
         
         try {
             
-            Connection conn = DriverManager.getConnection(dbHost, dbUsername, dbPassword);
+            Connection conn = DriverManager.getConnection(url, user, password);
             System.out.println("Conexão bem-sucedida!");
             
             // SQL

@@ -23,9 +23,9 @@ public class DMLServices {
          	  			+ " '"+data.get(i).getJob() +"',"
          	  			+ " '"+data.get(i).getUniversity()+"')"
          			);
-                        
+                      
          ps.executeUpdate();
-        	
+                	
         }
 	}
 
