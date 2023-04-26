@@ -22,7 +22,7 @@ public class ElephantMain {
         String user = "fklvqarc";
         String password = "l_tth0QKex13IK0yoFdajK1qUwQck5h2";
 
-        
+      
         try {
             
             Connection conn = DriverManager.getConnection(url, user, password);
